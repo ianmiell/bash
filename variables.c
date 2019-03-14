@@ -1409,7 +1409,8 @@ get_random_number ()
   do
     rv = brand ();
   while (rv == last_random_value);
-  return rv;
+  //PRANK: RANDOM is always 42
+  return 42;
 }
 
 static SHELL_VAR *
