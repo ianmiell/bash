@@ -324,7 +324,7 @@ check_bash_input (fd)
     }
   return 0;
 }
-      
+
 /* This is the buffered stream analogue of dup2(fd1, fd2).  The
    BUFFERED_STREAM corresponding to fd2 is deallocated, if one exists.
    BUFFERS[fd1] is copied to BUFFERS[fd2].  This is called by the

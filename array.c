@@ -52,7 +52,7 @@
 		ae->prev = new; \
 		new->next = ae; \
 	} while(0)
-	
+
 #define ADD_AFTER(ae, new) \
 	do { \
 		ae->next->prev = new; \
@@ -826,7 +826,7 @@ ARRAY	*a;
 	ret[i] = (char *)NULL;
 	return (ret);
 }
-	
+
 /*
  * Return a string that is the concatenation of the elements in A from START
  * to END, separated by SEP.

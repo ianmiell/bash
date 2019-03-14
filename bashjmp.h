@@ -40,7 +40,7 @@ extern int no_longjmp_on_fatal_error;
 #define FORCE_EOF	1	/* We want to stop parsing. */
 #define DISCARD		2	/* Discard current command. */
 #define EXITPROG	3	/* Unconditionally exit the program now. */
-#define ERREXIT		4	/* Exit due to error condition */	
+#define ERREXIT		4	/* Exit due to error condition */
 #define SIGEXIT		5	/* Exit due to fatal terminating signal */
 
 #endif /* _BASHJMP_H_ */

@@ -102,7 +102,7 @@ copy_bucket_array (ba, cpdata)
       n->next = (BUCKET_CONTENTS *)NULL;
     }
 
-  return new_bucket;  
+  return new_bucket;
 }
 
 HASH_TABLE *
@@ -210,7 +210,7 @@ hash_search (string, table, flags)
       table->nentries++;
       return (list);
     }
-      
+
   return (BUCKET_CONTENTS *)NULL;
 }
 

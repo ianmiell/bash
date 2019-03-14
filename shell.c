@@ -461,7 +461,7 @@ main (argc, argv, env)
 
   /* Find full word arguments first. */
   arg_index = parse_long_options (argv, arg_index, argc);
-  
+
   if (want_initial_help)
     {
       show_shell_usage (stdout, 1);
@@ -1604,7 +1604,7 @@ open_shell_script (script_name)
 #if defined (EISDIR)
 	      errno = EISDIR;
 	      file_error (filename);
-#else	      
+#else
 	      internal_error (_("%s: Is a directory"), filename);
 #endif
 	    }
@@ -1726,7 +1726,7 @@ unset_bash_input (check_zero)
     }
 #endif /* !BUFFERED_INPUT */
 }
-      
+
 
 #if !defined (PROGRAM)
 #  define PROGRAM "bash"

@@ -169,7 +169,7 @@ make_array_variable_value (entry, ind, key, value, flags)
       dentry->attributes = entry->attributes & ~(att_array|att_assoc|att_exported);
       /* Leave the rest of the members uninitialized; the code doesn't look
 	 at them. */
-      newval = make_variable_value (dentry, value, flags);	 
+      newval = make_variable_value (dentry, value, flags);
       dispose_variable (dentry);
     }
   else
@@ -177,7 +177,7 @@ make_array_variable_value (entry, ind, key, value, flags)
 
   return newval;
 }
-  
+
 static SHELL_VAR *
 bind_array_var_internal (entry, ind, key, value, flags)
      SHELL_VAR *entry;
@@ -255,7 +255,7 @@ bind_array_element (entry, ind, value, flags)
 {
   return (bind_array_var_internal (entry, ind, 0, value, flags));
 }
-                    
+
 SHELL_VAR *
 bind_assoc_variable (entry, name, key, value, flags)
      SHELL_VAR *entry;
@@ -407,7 +407,7 @@ find_or_make_array_variable (name, flags)
 
   return (var);
 }
-  
+
 /* Perform a compound assignment statement for array NAME, where VALUE is
    the text between the parens:  NAME=( VALUE ) */
 SHELL_VAR *
@@ -625,7 +625,7 @@ assign_compound_array_list (var, nlist, flags)
 	      val = w + len + 3;
 	    }
 	  else
-	    val = w + len + 2;	    
+	    val = w + len + 2;
 	}
       else if (assoc_p (var))
 	{
@@ -908,7 +908,7 @@ valid_array_reference (name, flags)
       *t = '\0';
       r = legal_identifier (name);
       if (flags & VA_NOEXPAND)	/* Don't waste a lookup if we don't need one */
-	isassoc = (entry = find_variable (name)) && assoc_p (entry);      
+	isassoc = (entry = find_variable (name)) && assoc_p (entry);
       *t = '[';
       if (r == 0)
 	return 0;
@@ -974,7 +974,7 @@ array_expand_index (var, s, len, flags)
 
       if (no_longjmp_on_fatal_error)
 	return 0;
-      top_level_cleanup ();      
+      top_level_cleanup ();
       jump_to_top_level (DISCARD);
     }
   return val;
@@ -1174,7 +1174,7 @@ array_value_internal (s, quoted, flags, rtype, indp)
 	      INDEX_ERROR();
 	    }
 	}
-     
+
       if (var == 0 || value_cell (var) == 0)	/* XXX - check invisible_p(var) ? */
 	{
           FREE (akey);

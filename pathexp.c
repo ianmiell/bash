@@ -41,7 +41,7 @@
 static int glob_name_is_acceptable __P((const char *));
 static void ignore_globbed_names __P((char **, sh_ignore_func_t *));
 static char *split_ignorespec __P((char *, int *));
-	       
+
 #if defined (USE_POSIX_GLOB_LIBRARY)
 #  include <glob.h>
 typedef int posix_glob_errfunc_t __P((const char *, int));
@@ -101,7 +101,7 @@ unquoted_glob_pattern_p (string)
 	   globbing. */
 	case '\\':
 	  return (*string != 0);
-	 	  
+
 	case CTLESC:
 	  if (*string++ == '\0')
 	    return (0);
@@ -141,7 +141,7 @@ ere_char (c)
     case '^':
     case '$':
       return 1;
-    default: 
+    default:
       return 0;
     }
   return (0);
@@ -579,11 +579,11 @@ split_ignorespec (s, ip)
   t = substring (s, i, n);
 
   if (s[n] == ':')
-    n++;  
-  *ip = n;  
+    n++;
+  *ip = n;
   return t;
 }
-  
+
 void
 setup_ignore_patterns (ivp)
      struct ignorevar *ivp;

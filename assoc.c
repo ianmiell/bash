@@ -152,7 +152,7 @@ assoc_quote (h)
 
   if (h == 0 || assoc_empty (h))
     return ((HASH_TABLE *)NULL);
-  
+
   for (i = 0; i < h->nbuckets; i++)
     for (tlist = hash_items (i, h); tlist; tlist = tlist->next)
       {
@@ -176,7 +176,7 @@ assoc_quote_escapes (h)
 
   if (h == 0 || assoc_empty (h))
     return ((HASH_TABLE *)NULL);
-  
+
   for (i = 0; i < h->nbuckets; i++)
     for (tlist = hash_items (i, h); tlist; tlist = tlist->next)
       {
@@ -198,7 +198,7 @@ assoc_dequote (h)
 
   if (h == 0 || assoc_empty (h))
     return ((HASH_TABLE *)NULL);
-  
+
   for (i = 0; i < h->nbuckets; i++)
     for (tlist = hash_items (i, h); tlist; tlist = tlist->next)
       {
@@ -220,7 +220,7 @@ assoc_dequote_escapes (h)
 
   if (h == 0 || assoc_empty (h))
     return ((HASH_TABLE *)NULL);
-  
+
   for (i = 0; i < h->nbuckets; i++)
     for (tlist = hash_items (i, h); tlist; tlist = tlist->next)
       {
@@ -242,7 +242,7 @@ assoc_remove_quoted_nulls (h)
 
   if (h == 0 || assoc_empty (h))
     return ((HASH_TABLE *)NULL);
-  
+
   for (i = 0; i < h->nbuckets; i++)
     for (tlist = hash_items (i, h); tlist; tlist = tlist->next)
       {
@@ -391,9 +391,9 @@ assoc_to_assign (hash, quoted)
 	else if (sh_contains_shell_metas (tlist->key))
 	  istr = sh_double_quote (tlist->key);
 	else if (ALL_ELEMENT_SUB (tlist->key[0]) && tlist->key[1] == '\0')
-	  istr = sh_double_quote (tlist->key);	
+	  istr = sh_double_quote (tlist->key);
 	else
-	  istr = tlist->key;	
+	  istr = tlist->key;
 
 	vstr = tlist->data ? (ansic_shouldquote ((char *)tlist->data) ?
 				ansic_quote ((char *)tlist->data, 0, (int *)0) :
@@ -449,7 +449,7 @@ assoc_to_word_list_internal (h, t)
   if (h == 0 || assoc_empty (h))
     return((WORD_LIST *)NULL);
   list = (WORD_LIST *)NULL;
-  
+
   for (i = 0; i < h->nbuckets; i++)
     for (tlist = hash_items (i, h); tlist; tlist = tlist->next)
       {
@@ -508,7 +508,7 @@ assoc_to_string (h, sep, quoted)
   l = REVERSE_LIST(list, WORD_LIST *);
 
   result = l ? string_list_internal (l, sep) : savestring ("");
-  dispose_words (l);  
+  dispose_words (l);
 
   return result;
 }

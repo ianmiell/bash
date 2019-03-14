@@ -8,7 +8,7 @@ standard on a few Linux distributions), and bash-4.4, the current
 widely-available version.  These were discovered by users of bash-2.x
 through 4.x, so this list is not comprehensive.  Some of these
 incompatibilities occur between the current version and versions 2.0 and
-above. 
+above.
 
 1.  Bash uses a new quoting syntax, $"...", to do locale-specific
     string translation.  Users who have relied on the (undocumented)
@@ -57,7 +57,7 @@ above.
     of `-'.  (The old form is still accepted, for the time being.)
 
 5.  There was a bug in the version of readline distributed with bash-1.14
-    that caused it to write badly-formatted key bindings when using 
+    that caused it to write badly-formatted key bindings when using
     `bind -d'.  The only key sequences that were affected are C-\ (which
     should appear as \C-\\ in a key binding) and C-" (which should appear
     as \C-\").  If these key sequences appear in your inputrc, as, for
@@ -409,7 +409,7 @@ Shell Compatibility Level
 =========================
 
 Bash-4.0 introduced the concept of a `shell compatibility level', specified
-as a set of options to the shopt builtin (compat31, compat32, compat40, 
+as a set of options to the shopt builtin (compat31, compat32, compat40,
 compat41, and compat42 at this writing).  There is only one current
 compatibility level -- each option is mutually exclusive.  This list does not
 mention behavior that is standard for a particular version (e.g., setting

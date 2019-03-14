@@ -131,7 +131,7 @@ else
 	MALLOC_LIB=
 	MALLOC_LIBRARY=
 	MALLOC_LDFLAGS=
-	MALLOC_DEP=	
+	MALLOC_DEP=
 fi
 
 if test "$opt_afs" = yes; then
@@ -493,7 +493,7 @@ if test "$opt_static_link" = yes; then
 	prefer_shared=no
 	# if we're using gcc, add `-static' to LDFLAGS, except on Solaris >= 2
 	if test -n "$GCC" || test "$ac_cv_prog_gcc" = "yes"; then
-		STATIC_LD="-static" 
+		STATIC_LD="-static"
 		case "$host_os" in
 		solaris2*|linux*)	;;
 		*)		LDFLAGS="$LDFLAGS -static" ;;	# XXX experimental
@@ -550,7 +550,7 @@ then
 
 	case "$ac_cv_rl_version" in
 	8*|9*)	;;
-	*)	opt_with_installed_readline=no 
+	*)	opt_with_installed_readline=no
 		AC_MSG_WARN([installed readline library is too old to be linked with bash])
 		AC_MSG_WARN([using private bash version])
 		;;

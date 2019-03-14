@@ -630,7 +630,7 @@ execute_command_internal (command, asynchronous, pipe_in, pipe_out,
       tcmd = make_command_string (command);
       paren_pid = make_child (p = savestring (tcmd), asynchronous);
 
-      if (user_subshell && signal_is_trapped (ERROR_TRAP) && 
+      if (user_subshell && signal_is_trapped (ERROR_TRAP) &&
 	  signal_in_progress (DEBUG_TRAP) == 0 && running_trap == 0)
 	{
 	  FREE (the_printed_command_except_trap);
@@ -1075,7 +1075,7 @@ execute_command_internal (command, asynchronous, pipe_in, pipe_out,
 
       break;
 #endif
-    
+
     case cm_function_def:
       exec_result = execute_intern_function (command->value.Function_def->name,
 					     command->value.Function_def);
@@ -1221,7 +1221,7 @@ mkfmt (buf, prec, lng, sec, sec_fraction)
    characters after the decimal point, the optional `l' means to format
    using minutes and seconds (MMmNN[.FF]s), like the `times' builtin',
    and the last character is one of
-   
+
 		R	number of seconds of `real' time
 		U	number of seconds of `user' time
 		S	number of seconds of `system' time
@@ -1642,7 +1642,7 @@ execute_in_subshell (command, asynchronous, pipe_in, pipe_out, fds_to_close)
     tcom->flags |= CMD_TIME_PIPELINE;
   if (command->flags & CMD_TIME_POSIX)
     tcom->flags |= CMD_TIME_POSIX;
-  
+
   /* Make sure the subshell inherits any CMD_IGNORE_RETURN flag. */
   if ((command->flags & CMD_IGNORE_RETURN) && tcom != command)
     tcom->flags |= CMD_IGNORE_RETURN;
@@ -1713,7 +1713,7 @@ typedef struct cpelement
     struct coproc *coproc;
   }
 cpelement_t;
-    
+
 typedef struct cplist
   {
     struct cpelement *head;
@@ -1860,7 +1860,7 @@ cpl_reap ()
       coproc_list.head = nh;
       coproc_list.tail = nt;
       if (coproc_list.ncoproc == 1)
-	coproc_list.tail = coproc_list.head;		/* just to make sure */  
+	coproc_list.tail = coproc_list.head;		/* just to make sure */
     }
 }
 
@@ -2271,7 +2271,7 @@ coproc_setvars (cp)
 	{
 	  free (cp->c_name);
 	  cp->c_name = savestring (nameref_cell (v));
-	  v = make_new_array_variable (cp->c_name);	  
+	  v = make_new_array_variable (cp->c_name);
 	}
     }
 
@@ -2329,7 +2329,7 @@ coproc_unsetvars (cp)
   namevar = xmalloc (l + 16);
 
   sprintf (namevar, "%s_PID", cp->c_name);
-  unbind_variable_noref (namevar);  
+  unbind_variable_noref (namevar);
 
 #if defined (ARRAY_VARS)
   check_unbind_variable (cp->c_name);
@@ -2338,7 +2338,7 @@ coproc_unsetvars (cp)
   unbind_variable (namevar);
   sprintf (namevar, "%s_WRITE", cp->c_name);
   unbind_variable (namevar);
-#endif  
+#endif
 
   free (namevar);
 }
@@ -2582,7 +2582,7 @@ execute_pipeline (command, asynchronous, pipe_in, pipe_out, fds_to_close)
 	}
       if (cmd)
 	cmd->flags |= CMD_LASTPIPE;
-    }	  
+    }
   if (prev >= 0)
     add_unwind_protect (close, prev);
 
@@ -3712,7 +3712,7 @@ execute_arith_command (arith_command)
       line_number -= function_line_number - 1;
       if (line_number <= 0)
 	line_number = 1;
-    }      
+    }
 
   command_string_index = 0;
   print_arith_command (arith_command->exp);
@@ -3790,7 +3790,7 @@ execute_cond_node (cond)
       if (cond->right)
 	cond->right->flags |= CMD_IGNORE_RETURN;
     }
-      
+
   if (cond->type == COND_EXPR)
     result = execute_cond_node (cond->left);
   else if (cond->type == COND_OR)
@@ -4660,7 +4660,7 @@ execute_builtin (builtin, words, flags, subshell)
 	    should_keep = 0;
 	  if (subshell == 0)
 	    add_unwind_protect (pop_scope, should_keep ? "1" : 0);
-          temporary_env = (HASH_TABLE *)NULL;	  
+          temporary_env = (HASH_TABLE *)NULL;
 	}
     }
 
@@ -4840,7 +4840,7 @@ execute_function (var, words, flags, fds_to_close, async, subshell)
   debug_trap = TRAP_STRING(DEBUG_TRAP);
   error_trap = TRAP_STRING(ERROR_TRAP);
   return_trap = TRAP_STRING(RETURN_TRAP);
-  
+
   /* The order of the unwind protects for debug_trap, error_trap and
      return_trap is important here!  unwind-protect commands are run
      in reverse order of registration.  If this causes problems, take
@@ -4883,7 +4883,7 @@ execute_function (var, words, flags, fds_to_close, async, subshell)
 	}
       restore_default_signal (RETURN_TRAP);
     }
-  
+
   funcnest++;
 #if defined (ARRAY_VARS)
   /* This is quite similar to the code in shell.c and elsewhere. */
@@ -5026,7 +5026,7 @@ execute_shell_function (var, words)
   bitmap = new_fd_bitmap (FD_BITMAP_DEFAULT_SIZE);
   begin_unwind_frame ("execute-shell-function");
   add_unwind_protect (dispose_fd_bitmap, (char *)bitmap);
-      
+
   ret = execute_function (var, words, 0, bitmap, 0, 0);
 
   dispose_fd_bitmap (bitmap);
@@ -5219,7 +5219,7 @@ execute_builtin_or_function (words, builtin, var, redirects,
   fflush (stdout);
   fpurge (stdout);
   if (ferror (stdout))
-    clearerr (stdout);  
+    clearerr (stdout);
 
   /* If we are executing the `command' builtin, but this_shell_builtin is
      set to `exec_builtin', we know that we have something like
@@ -5238,7 +5238,7 @@ execute_builtin_or_function (words, builtin, var, redirects,
 	  discard = 1;
 	}
       redirection_undo_list = exec_redirection_undo_list;
-      saved_undo_list = exec_redirection_undo_list = (REDIRECT *)NULL;      
+      saved_undo_list = exec_redirection_undo_list = (REDIRECT *)NULL;
       if (discard)
 	discard_unwind_frame ("saved-redirects");
     }
@@ -5550,7 +5550,7 @@ execute_shell_script (sample, sample_len, command, args, env)
   /* If there is more text on the line, then it is an argument for the
      interpreter. */
 
-  if (STRINGCHAR(i))  
+  if (STRINGCHAR(i))
     {
       for (start = i; STRINGCHAR(i); i++)
 	;
@@ -5653,7 +5653,7 @@ initialize_subshell ()
 	len = -1; \
     } \
   while (0)
-      
+
 /* Call execve (), handling interpreting shell scripts, and handling
    exec failures. */
 int

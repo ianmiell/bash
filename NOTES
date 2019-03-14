@@ -117,12 +117,12 @@ Platform-Specific Configuration and Operation Notes [somewhat dated]
     code handy to look at, but the `problem' with bash-2.0, as
     it has been related to me, is that bash requires the `-p'
     option to be supplied at invocation if it is to run setuid
-    or setgid. 
+    or setgid.
 
     This means, among other things, that setuid or setgid programs
     which call system(3) (a horrendously bad practice in any case)
     relinquish their setuid/setgid status in the child that's forked
-    to execute /bin/sh. 
+    to execute /bin/sh.
 
     The following is an *unofficial* patch to bash-2.0 that causes it
     to not require `-p' to run setuid or setgid if invoked as `sh'.
@@ -184,7 +184,7 @@ Platform-Specific Configuration and Operation Notes [somewhat dated]
    configure will insist that you supply a host type. For example, do
    ./configure --host=i386-pc-minix.
 
-   Minix does not support the system calls required for a proper 
+   Minix does not support the system calls required for a proper
    implementation of ulimit().  The `ulimit' builtin will not be available.
 
    Configure will fail to notice that many things like uid_t are indeed

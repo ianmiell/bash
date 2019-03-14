@@ -40,7 +40,7 @@
 
 /* Defines for the wait_for functions and for the wait builtin to use */
 #define JWAIT_PERROR		0x01
-#define JWAIT_FORCE		0x02 
+#define JWAIT_FORCE		0x02
 
 /* The max time to sleep while retrying fork() on EAGAIN failure */
 #define FORKSLEEP_MAX	16

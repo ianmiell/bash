@@ -64,7 +64,7 @@ AC_DEFUN(BASH_HEADER_INTTYPES,
 dnl
 dnl check for typedef'd symbols in header files, but allow the caller to
 dnl specify the include files to be checked in addition to the default
-dnl 
+dnl
 dnl BASH_CHECK_TYPE(TYPE, HEADERS, DEFAULT[, VALUE-IF-FOUND])
 AC_DEFUN(BASH_CHECK_TYPE,
 [
@@ -1381,7 +1381,7 @@ AC_CACHE_VAL(bash_cv_job_control_missing,
 #endif
 
 /* process control */
-#if !defined (WNOHANG) || !defined (WUNTRACED) 
+#if !defined (WNOHANG) || !defined (WUNTRACED)
 #error
 #endif
 
@@ -1485,7 +1485,7 @@ AC_CACHE_VAL(bash_cv_tiocgwinsz_in_ioctl,
 #include <sys/ioctl.h>], [int x = TIOCGWINSZ;],
   bash_cv_tiocgwinsz_in_ioctl=yes,bash_cv_tiocgwinsz_in_ioctl=no)])
 AC_MSG_RESULT($bash_cv_tiocgwinsz_in_ioctl)
-if test $bash_cv_tiocgwinsz_in_ioctl = yes; then   
+if test $bash_cv_tiocgwinsz_in_ioctl = yes; then
 AC_DEFINE(GWINSZ_IN_SYS_IOCTL)
 fi
 ])
@@ -1497,7 +1497,7 @@ AC_CACHE_VAL(bash_cv_tiocstat_in_ioctl,
 #include <sys/ioctl.h>], [int x = TIOCSTAT;],
   bash_cv_tiocstat_in_ioctl=yes,bash_cv_tiocstat_in_ioctl=no)])
 AC_MSG_RESULT($bash_cv_tiocstat_in_ioctl)
-if test $bash_cv_tiocstat_in_ioctl = yes; then   
+if test $bash_cv_tiocstat_in_ioctl = yes; then
 AC_DEFINE(TIOCSTAT_IN_SYS_IOCTL)
 fi
 ])
@@ -1509,7 +1509,7 @@ AC_CACHE_VAL(bash_cv_fionread_in_ioctl,
 #include <sys/ioctl.h>], [int x = FIONREAD;],
   bash_cv_fionread_in_ioctl=yes,bash_cv_fionread_in_ioctl=no)])
 AC_MSG_RESULT($bash_cv_fionread_in_ioctl)
-if test $bash_cv_fionread_in_ioctl = yes; then   
+if test $bash_cv_fionread_in_ioctl = yes; then
 AC_DEFINE(FIONREAD_IN_SYS_IOCTL)
 fi
 ])
@@ -1526,7 +1526,7 @@ AC_CACHE_VAL(bash_cv_speed_t_in_sys_types,
 [AC_TRY_COMPILE([#include <sys/types.h>], [speed_t x;],
   bash_cv_speed_t_in_sys_types=yes,bash_cv_speed_t_in_sys_types=no)])
 AC_MSG_RESULT($bash_cv_speed_t_in_sys_types)
-if test $bash_cv_speed_t_in_sys_types = yes; then   
+if test $bash_cv_speed_t_in_sys_types = yes; then
 AC_DEFINE(SPEED_T_IN_SYS_TYPES)
 fi
 ])
@@ -1561,7 +1561,7 @@ if test -d /dev/fd  && (exec test -r /dev/fd/0 < /dev/null) ; then
      bash_cv_dev_fd=absent
    fi
 fi
-if test -z "$bash_cv_dev_fd" ; then 
+if test -z "$bash_cv_dev_fd" ; then
   if test -d /proc/self/fd && (exec test -r /proc/self/fd/0 < /dev/null) ; then
     bash_cv_dev_fd=whacky
   else
@@ -2000,7 +2000,7 @@ dnl
 
 AC_DEFUN([AM_PATH_LISPDIR],
  [AC_ARG_WITH(lispdir, AC_HELP_STRING([--with-lispdir], [override the default lisp directory]),
-  [ lispdir="$withval" 
+  [ lispdir="$withval"
     AC_MSG_CHECKING([where .elc files should go])
     AC_MSG_RESULT([$lispdir])],
   [

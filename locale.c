@@ -265,7 +265,7 @@ set_locale_var (var, value)
 #  endif /* LC_TIME */
     }
 #endif /* HAVE_SETLOCALE */
-  
+
   if (x == 0)
     {
       if (errno == 0)
@@ -364,7 +364,7 @@ reset_locale_vars ()
   t = setlocale (LC_TIME, get_locale_var ("LC_TIME"));
 #  endif
 
-  locale_setblanks ();  
+  locale_setblanks ();
   locale_mb_cur_max = MB_CUR_MAX;
   if (x)
     locale_utf8locale = locale_isutf8 (x);
@@ -452,7 +452,7 @@ mk_msgstr (string, foundnlp)
       else if (*s == '\n')
 	len += 5;
     }
-  
+
   r = result = (char *)xmalloc (len + 3);
   *r++ = '"';
 

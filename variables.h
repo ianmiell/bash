@@ -227,7 +227,7 @@ typedef struct _vlist {
 /* Special value for nameref with invalid value for creation or assignment */
 extern SHELL_VAR nameref_invalid_value;
 #define INVALID_NAMEREF_VALUE	(void *)&nameref_invalid_value
-	
+
 /* Stuff for hacking variables. */
 typedef int sh_var_map_func_t __P((SHELL_VAR *));
 
@@ -292,7 +292,7 @@ extern void bind_function_def __P((const char *, FUNCTION_DEF *, int));
 
 extern SHELL_VAR **map_over __P((sh_var_map_func_t *, VAR_CONTEXT *));
 SHELL_VAR **map_over_funcs __P((sh_var_map_func_t *));
-     
+
 extern SHELL_VAR **all_shell_variables __P((void));
 extern SHELL_VAR **all_shell_functions __P((void));
 extern SHELL_VAR **all_visible_variables __P((void));

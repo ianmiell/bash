@@ -283,12 +283,12 @@ preproc_filterpat (pat, text)
   ret = strcreplace (pat, '&', text, 1);
   return ret;
 }
-	
+
 /* Remove any match of FILTERPAT from SL.  A `&' in FILTERPAT is replaced by
    TEXT.  A leading `!' in FILTERPAT negates the pattern; in this case
    any member of SL->list that does *not* match will be removed.  This returns
    a new STRINGLIST with the matching members of SL *copied*.  Any
-   non-matching members of SL->list are *freed*. */   
+   non-matching members of SL->list are *freed*. */
 STRINGLIST *
 filter_stringlist (sl, filterpat, text)
      STRINGLIST *sl;
@@ -406,7 +406,7 @@ init_itemlist_from_varlist (itp, svfunc)
     {
       itp->slist = (STRINGLIST *)NULL;
       return;
-    }    
+    }
   for (n = 0; vlist[n]; n++)
     ;
   sl = strlist_create (n+1);
@@ -767,7 +767,7 @@ pcomp_filename_completion_function (text, state)
 	 calling readline, do the dequoting. */
       else if (iscompgen && iscompleting &&
 	       pcomp_curtxt && *pcomp_curtxt == 0 &&
-	       text && (*text == '\'' || *text == '"') && text[1] == text[0] && text[2] == 0 && 
+	       text && (*text == '\'' || *text == '"') && text[1] == text[0] && text[2] == 0 &&
 	       rl_filename_dequoting_function)
 	dfn = (*rl_filename_dequoting_function) ((char *)text, rl_completion_quote_character);
       /* Another mismatched assumption by bash-completion.  If compgen is being
@@ -1152,7 +1152,7 @@ gen_shell_function_matches (cs, cmd, text, line, ind, lwords, nw, cw, foundp)
   add_unwind_protect (dispose_words, (char *)cmdlist);
   add_unwind_protect (unbind_compfunc_variables, (char *)0);
 
-  fval = execute_shell_function (f, cmdlist);  
+  fval = execute_shell_function (f, cmdlist);
 
   discard_unwind_frame ("gen-shell-function-matches");
   restore_parser_state (pps);
@@ -1599,7 +1599,7 @@ gen_progcomp_completions (ocmd, cmd, word, start, end, foundp, retryp, lastcs)
 
   /* We need to conditionally handle setting *retryp here */
   if (retryp)
-    *retryp = foundp && (*foundp & PCOMP_RETRYFAIL);    	
+    *retryp = foundp && (*foundp & PCOMP_RETRYFAIL);
 
   if (foundp)
     {
@@ -1608,7 +1608,7 @@ gen_progcomp_completions (ocmd, cmd, word, start, end, foundp, retryp, lastcs)
     }
 
   compspec_dispose (cs);
-  return ret;  
+  return ret;
 }
 
 /* The driver function for the programmable completion code.  Returns a list

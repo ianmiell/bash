@@ -349,7 +349,7 @@ write_here_string (fd, redirectee)
       return e;
     }
   return 0;
-}  
+}
 
 /* Write the text of the here document pointed to by REDIRECTEE to the file
    descriptor FD, which is already open to a temp file.  Return 0 if the
@@ -597,7 +597,7 @@ redir_special_open (spec, filename, flags, mode, ri)
 
   return fd;
 }
-      
+
 /* Open FILENAME with FLAGS in noclobber mode, hopefully avoiding most
    race conditions and avoiding the problem where the file is replaced
    between the stat(2) and open(2). */
@@ -648,7 +648,7 @@ noclobber_open (filename, flags, mode, ri)
     return fd;
 
   /* The file has been replaced.  badness. */
-  close (fd);  
+  close (fd);
   errno = EEXIST;
   return (NOCLOBBER_REDIRECT);
 }
@@ -743,7 +743,7 @@ do_redirection_internal (redirect, flags)
   if (TRANSLATE_REDIRECT (ri))
     {
       /* We have [N]>&WORD[-] or [N]<&WORD[-] (or {V}>&WORD[-] or {V}<&WORD-).
-         and WORD, then translate the redirection into a new one and 
+         and WORD, then translate the redirection into a new one and
 	 continue. */
       redirectee_word = redirection_expand (redirectee);
 
@@ -1121,7 +1121,7 @@ do_redirection_internal (redirect, flags)
 	     when the fd is restored. */
 	  if ((redirect->flags & RX_INTERNAL) && (redirect->flags & RX_SAVCLEXEC) && redirector >= 3 && (redir_fd >= SHELL_FD_BASE || (redirect->flags & RX_SAVEFD)))
 	    SET_OPEN_ON_EXEC (redirector);
-	    
+
 	  /* dup-and-close redirection */
 	  if (ri == r_move_input || ri == r_move_output)
 	    {
@@ -1419,7 +1419,7 @@ redir_varvalue (redir)
 	}
 #endif
     }
-	
+
   if (v == 0 || invisible_p (v))
     return -1;
 

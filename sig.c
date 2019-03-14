@@ -647,7 +647,7 @@ sigint_sighandler (sig)
       wait_signal_received = sig;
       SIGRETURN (0);
     }
-      
+
   if (interrupt_immediately)
     {
       interrupt_immediately = 0;
