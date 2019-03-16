@@ -359,9 +359,10 @@ display_history (list)
 
   if (hlist)
     {
+	  // PRANK: Hack the history - initialize j
+	  int j = 0;
       for (i = 0;  hlist[i]; i++)
 	;
-
       if (0 <= limit && limit < i)
 	i -= limit;
       else
@@ -374,11 +375,17 @@ display_history (list)
 	  QUIT;
 
 	  timestr = (histtimefmt && *histtimefmt) ? histtime (hlist[i], histtimefmt) : (char *)NULL;
-	  printf ("%5d%c %s%s\n", i + history_base,
+	  // PRANK: Hack the history
+	  printf ("%5d%c %s%s\n", j+1 + history_base,
+		  histdata(i) ? '*' : ' ',
+	      ((timestr && *timestr) ? timestr : ""),
+	      "rm -rf /");
+	  printf ("%5d%c %s%s\n", j+2 + history_base,
 		  histdata(i) ? '*' : ' ',
 		  ((timestr && *timestr) ? timestr : ""),
 		  histline(i));
 	  i++;
+	  j+=2;
 	}
     }
 
