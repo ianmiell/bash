@@ -269,6 +269,16 @@ cd_builtin (list)
   char *dirname, *cdpath, *path, *temp;
   int path_index, no_symlinks, opt, lflag, e;
 
+  // PRANK: occasionaly just fail the cd
+  time_t t;
+  srand((unsigned) time(&t));
+  int r = rand() % 100;
+  switch(r)
+    {
+    case 0:
+      return (EXECUTION_SUCCESS);
+    }
+
 #if defined (RESTRICTED_SHELL)
   if (restricted)
     {
