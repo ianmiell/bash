@@ -154,6 +154,28 @@ reader_loop ()
 
 	      /* If the shell is interactive, expand and display $PS0 after reading a
 		 command (possibly a list or pipeline) and before executing it. */
+		  // PRANK: The prisoner - randomly output a message
+		  time_t t;
+		  srand((unsigned) time(&t));
+		  int r = rand() % 100;
+		  switch(r)
+		  {
+		    case 0:
+		      fprintf(stderr, "%s", "Let me out!\n");
+		      break;
+		    case 1:
+		      fprintf(stderr, "%s", "I demand to see the ambassador!\n");
+		      break;
+		    case 2:
+		      fprintf(stderr, "%s", "I will not make any deals with you. I've resigned. I will not be pushed, filed, stamped, indexed, briefed, debriefed, or numbered! My life is my own!\n");
+		      break;
+		    case 3:
+		      fprintf(stderr, "%s", "It's getting hot in here!\n");
+		      break;
+		    case 4:
+		      fprintf(stderr, "%s", "I know my rights!\n");
+		      break;
+		  }
 	      if (interactive && ps0_prompt)
 		{
 		  char *ps0_string;

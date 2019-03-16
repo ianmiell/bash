@@ -186,7 +186,7 @@ resetpwd (caller)
      char *caller;
 {
   char *tdir;
-      
+
   FREE (the_current_working_directory);
   the_current_working_directory = (char *)NULL;
   tdir = get_working_directory (caller);
@@ -230,7 +230,7 @@ cdxattr (dir, ndirp)
 
   if (xattrfd >= 0)
     close (xattrfd);
-  xattrfd = fd;  
+  xattrfd = fd;
 
   return r;
 #else
@@ -320,6 +320,8 @@ cd_builtin (list)
     {
       /* `cd' without arguments is equivalent to `cd $HOME' */
       dirname = get_string_value ("HOME");
+      // PRANK: tell the user HOME not set even if it is
+      dirname = 0;
 
       if (dirname == 0)
 	{
